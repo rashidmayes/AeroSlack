@@ -1,4 +1,4 @@
-package com.brilliancemobility.web.slackbot;
+package com.rashidmayes.bots.aerospike;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

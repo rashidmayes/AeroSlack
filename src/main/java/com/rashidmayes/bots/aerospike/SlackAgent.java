@@ -1,4 +1,4 @@
-package com.brilliancemobility.web.slackbot;
+package com.rashidmayes.bots.aerospike;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import org.threeten.bp.LocalDate;
 
 import com.ullink.slack.simpleslackapi.ChannelHistoryModule;
+import com.ullink.slack.simpleslackapi.SlackAttachment;
 import com.ullink.slack.simpleslackapi.SlackChannel;
 import com.ullink.slack.simpleslackapi.SlackMessageHandle;
 import com.ullink.slack.simpleslackapi.SlackSession;
@@ -22,10 +23,13 @@ public abstract class SlackAgent implements SlackMessagePostedListener {
 	Configuration mConfiguration;
 	SlackSession mSession;
 	SlackUser watcher;
+	String name;
 	
 	public SlackAgent(Configuration configuration, SlackSession session) {
 		this.mConfiguration = configuration;
 		this.mSession = session;
+		this.name = String.format("%s(%s)", configuration.name, Integer.toHexString(this.hashCode()));
+		
 		
 		if ( configuration.slackWatcher != null ) {
 			watcher = session.findUserByUserName(configuration.slackWatcher);
@@ -48,7 +52,7 @@ public abstract class SlackAgent implements SlackMessagePostedListener {
     	
     	if ( watcher != null ) {
         	String text = String.format(message, (Object[]) args);
-        	text = String.format("%s: %s", this, text);
+        	text = String.format("%s: %s", name, text);
         	mSession.sendMessageToUser(watcher, text, null);    		
     	}
     }
@@ -87,7 +91,16 @@ public abstract class SlackAgent implements SlackMessagePostedListener {
     public void sendMessage(String username, String message) {
 
         SlackUser user = mSession.findUserByUserName(username);
-        mSession.sendMessageToUser(user, message, null);
+        sendMessage(user, message, null);
+    }
+    
+    public void sendMessage(SlackUser user, String message) {
+    	sendMessage(user, message, null);
+    }
+    
+    
+    public void sendMessage(SlackUser user, String message, SlackAttachment attachment) {
+        mSession.sendMessageToUser(user, message, attachment);
     }
 
     public void sendDirectMessage(String message, String... username) {

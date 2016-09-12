@@ -1,6 +1,7 @@
-package com.brilliancemobility.web.slackbot;
+package com.rashidmayes.bots.aerospike;
 
 import com.aerospike.client.AerospikeClient;
+import com.rashidmayes.bots.aerospike.impl.CommandHandler;
 import com.ullink.slack.simpleslackapi.SlackSession;
 import com.ullink.slack.simpleslackapi.SlackUser;
 import com.ullink.slack.simpleslackapi.events.SlackMessagePosted;
@@ -40,6 +41,7 @@ public class AerospikeSlackAgent extends SlackAgent {
         	if ( handlerClass == null ) {
         		mLogger.info(String.format("Parsed command %s, but not handler class.",  command));
         	} else {
+        		mLogger.info(command + " -> " + handlerClass);
         		handler = (CommandHandler)(Class.forName(handlerClass).newInstance());
         	}
         } catch (Exception e) {
