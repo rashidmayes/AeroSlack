@@ -55,7 +55,7 @@ public class AerospikeSlackAgent extends SlackAgent {
 		return this.mSession;
 	}
 	
-	protected AerospikeClient getClient() {
+	public AerospikeClient getClient() {
 		if ( mClient == null || !mClient.isConnected() ) {
 			
 			mClient = new AerospikeClient(mConfiguration.host, mConfiguration.port);
