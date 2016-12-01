@@ -6,7 +6,7 @@ AeroSlack uses the [Simple Slack API](https://github.com/Ullink/simple-slack-api
 
 ##Screenshots
 
-!(/screenshots/screenshot1.png)
+![](https://github.com/rashidmayes/AeroSlack/blob/master/screenshots/screenshot1.png)
 
 ##Configuration
 
