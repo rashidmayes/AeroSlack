@@ -1,7 +1,9 @@
 package com.rashidmayes.bots.aerospike;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import org.threeten.bp.LocalDate;
@@ -120,5 +122,9 @@ public abstract class SlackAgent implements SlackMessagePostedListener {
     
     public void handleOnSelfEvent(SlackMessagePosted event, SlackSession session) {
     	//ignore my events by default
+    }
+    
+    public Map<String,String> getHandlers() {
+    	return Collections.unmodifiableMap(mConfiguration.handlers);
     }
 }

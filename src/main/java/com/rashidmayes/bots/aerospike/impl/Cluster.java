@@ -32,4 +32,9 @@ public class Cluster extends CommandHandler {
 			this.mAgent.sendMessage(event.getSender(), e.getMessage());
 		}
 	}
+	
+	@Override
+	public String getDescription() {
+		return "Lists all nodes within the cluster";
+	}
 }

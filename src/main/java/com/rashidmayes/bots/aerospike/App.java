@@ -35,26 +35,9 @@ public class App
     			configuration = objectMapper.readValue(file, Configuration.class);
     		} else {
     			logger.severe(String.format("File %s is unreadable. Exiting", file.getPath()));
-    			//return;
+    			return;
     		}
-    		
-    		
-    		configuration = new Configuration();
-			configuration.slackSessionId = "xoxb-64768433796-uORZK2jmyfWSM2K5jKKkAgXD";
-			configuration.host = "brilliancemobility.com";
-			configuration.port = 3000;
-			configuration.slackWatcher = "rashid";
-			configuration.handlers = new HashMap<String, String>();
-			configuration.handlers.put("!info","com.rashidmayes.bots.aerospike.impl.Info");
-			configuration.handlers.put("cluster","com.rashidmayes.bots.aerospike.impl.Cluster");
-			configuration.handlers.put("version","com.rashidmayes.bots.aerospike.impl.Version");
-			configuration.handlers.put("build","com.rashidmayes.bots.aerospike.impl.Build");
-			configuration.handlers.put("help","com.rashidmayes.bots.aerospike.impl.Help");
-			configuration.handlers.put("namespaces","com.rashidmayes.bots.aerospike.impl.Namespaces");
-			configuration.handlers.put("sets","com.rashidmayes.bots.aerospike.impl.Sets");
-			configuration.handlers.put("stats","com.rashidmayes.bots.aerospike.impl.Stats");
-			configuration.handlers.put("daijobu","com.rashidmayes.bots.aerospike.impl.Daijobu");
-    		
+			
 			String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(configuration);
 			logger.info(json);
 			

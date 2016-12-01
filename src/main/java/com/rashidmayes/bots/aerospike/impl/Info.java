@@ -90,4 +90,9 @@ public class Info extends CommandHandler {
 			this.mAgent.sendMessage(event.getSender(), e.getMessage());
 		}
 	}
+	
+	@Override
+	public String getDescription() {
+		return "Prints information about AeroSlack";
+	}
 }

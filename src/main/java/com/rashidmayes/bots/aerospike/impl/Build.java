@@ -32,4 +32,9 @@ public class Build extends CommandHandler {
 			this.mAgent.sendMessage(event.getSender(), e.getMessage());
 		}
 	}
+
+	@Override
+	public String getDescription() {
+		return "Prints the build number for all nodes";
+	}
 }

@@ -19,5 +19,5 @@ public abstract class CommandHandler {
 	}
 	
 	public abstract void execute(SlackMessagePosted event);
-	
+	public abstract String getDescription();
 }

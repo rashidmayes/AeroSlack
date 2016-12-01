@@ -64,7 +64,7 @@ public class AerospikeSlackAgent extends SlackAgent {
 			mClient.queryPolicyDefault.timeout = 4000;
 			
 			mLogger.info(this + " Connected" + mClient.toString());
-			informWatcher(mClient.toString());
+			//informWatcher(mClient.toString());
 		}
 		
 		return mClient;

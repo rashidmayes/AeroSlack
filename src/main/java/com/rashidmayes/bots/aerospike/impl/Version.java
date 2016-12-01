@@ -31,4 +31,9 @@ public class Version extends CommandHandler {
 			this.mAgent.sendMessage(event.getSender(), e.getMessage());
 		}
 	}
+	
+	@Override
+	public String getDescription() {
+		return "Prints the version for all nodes";
+	}
 }
