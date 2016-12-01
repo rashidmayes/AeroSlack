@@ -2,7 +2,6 @@ package com.rashidmayes.bots.aerospike;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
