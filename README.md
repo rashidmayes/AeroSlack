@@ -46,7 +46,7 @@ To add new command, extend the [com.rashidmayes.bots.aerospike.impl.CommandHandl
 Example:
 
 ```java
-public class Help extends MyCommandHandler {
+public class MyCommandHandler extends CommandHandler {
 	
 	@Override
 	public void execute(SlackMessagePosted event) {
